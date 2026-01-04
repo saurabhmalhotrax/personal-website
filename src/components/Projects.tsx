@@ -25,15 +25,23 @@ const projects = [
 
 export default function Projects() {
   return (
-    <section id="projects" className="py-24 px-6 bg-white">
-      <div className="max-w-6xl mx-auto">
+    <section id="projects" className="py-24 px-6 bg-background relative overflow-hidden">
+      {/* Background decoration */}
+      <div className="absolute top-1/2 left-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl"></div>
+      <div className="absolute bottom-0 right-0 w-96 h-96 bg-accent/5 rounded-full blur-3xl"></div>
+
+      <div className="max-w-6xl mx-auto relative z-10">
+        {/* Section Header - Bold messaging */}
         <div className="text-center mb-16">
+          <p className="text-primary font-semibold mb-2 tracking-wide uppercase text-sm">
+            Proof Over Promises
+          </p>
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-            Building the Future of Audit
+            Talk is cheap. Here&apos;s what I&apos;ve shipped.
           </h2>
-          <p className="text-lg text-muted max-w-2xl mx-auto">
-            I don&apos;t just talk about innovation&mdash;I build it. Here are the tools
-            I&apos;m creating to transform how audits are done.
+          <p className="text-lg text-foreground-muted max-w-2xl mx-auto">
+            While others make PowerPoints about digital transformation,
+            I build the tools that actually transform how work gets done.
           </p>
         </div>
 
@@ -44,12 +52,12 @@ export default function Projects() {
             .map((project, index) => (
               <div
                 key={index}
-                className="bg-gradient-to-br from-primary/5 to-accent/5 rounded-2xl p-8 md:p-12 card-hover"
+                className="card-dark p-8 md:p-12"
               >
                 <div className="grid md:grid-cols-2 gap-8 items-center">
                   <div>
                     <div className="flex items-center gap-3 mb-4">
-                      <span className="px-3 py-1 bg-primary text-white text-xs font-semibold rounded-full">
+                      <span className="px-3 py-1 bg-gradient-to-r from-primary to-accent text-white text-xs font-semibold rounded-full">
                         Featured Project
                       </span>
                       <span className="px-3 py-1 bg-accent/20 text-accent text-xs font-semibold rounded-full">
@@ -62,10 +70,11 @@ export default function Projects() {
                     <p className="text-lg text-primary font-semibold mb-4">
                       {project.tagline}
                     </p>
-                    <p className="text-muted mb-6">{project.description}</p>
+                    <p className="text-foreground-muted mb-6">{project.description}</p>
 
-                    <div className="bg-white rounded-lg p-4 mb-6">
-                      <p className="text-sm font-semibold text-foreground mb-1">
+                    {/* Impact callout */}
+                    <div className="bg-surface-elevated rounded-lg p-4 mb-6 border border-border">
+                      <p className="text-sm font-semibold text-muted mb-1">
                         Impact
                       </p>
                       <p className="text-lg font-bold gradient-text">
@@ -77,7 +86,7 @@ export default function Projects() {
                       {project.tech.map((tech, idx) => (
                         <span
                           key={idx}
-                          className="px-3 py-1 bg-white text-muted text-sm rounded-full"
+                          className="px-3 py-1 bg-surface-elevated text-foreground-muted text-sm rounded-full border border-border"
                         >
                           {tech}
                         </span>
@@ -86,10 +95,10 @@ export default function Projects() {
                   </div>
 
                   {/* Project Visual */}
-                  <div className="bg-white rounded-xl p-8 shadow-lg">
+                  <div className="bg-surface-elevated rounded-xl p-8 border border-border">
                     <div className="aspect-video bg-gradient-to-br from-primary/10 to-accent/10 rounded-lg flex items-center justify-center">
                       <div className="text-center">
-                        <div className="w-16 h-16 mx-auto mb-4 rounded-xl bg-gradient-to-br from-primary to-accent flex items-center justify-center">
+                        <div className="w-16 h-16 mx-auto mb-4 rounded-xl bg-gradient-to-br from-primary to-accent flex items-center justify-center animate-glow">
                           <svg
                             className="w-8 h-8 text-white"
                             fill="none"
@@ -105,7 +114,7 @@ export default function Projects() {
                           </svg>
                         </div>
                         <p className="text-sm text-muted">
-                          Product screenshot placeholder
+                          Demo video coming soon
                         </p>
                       </div>
                     </div>
@@ -121,10 +130,10 @@ export default function Projects() {
               .map((project, index) => (
                 <div
                   key={index}
-                  className="bg-background rounded-xl p-6 card-hover"
+                  className="card-dark p-6"
                 >
                   <div className="flex items-center gap-3 mb-4">
-                    <span className="px-3 py-1 bg-muted/20 text-muted text-xs font-semibold rounded-full">
+                    <span className="px-3 py-1 bg-surface-elevated text-muted text-xs font-semibold rounded-full border border-border">
                       {project.status}
                     </span>
                   </div>
@@ -134,13 +143,13 @@ export default function Projects() {
                   <p className="text-primary font-medium text-sm mb-3">
                     {project.tagline}
                   </p>
-                  <p className="text-sm text-muted mb-4">{project.description}</p>
+                  <p className="text-sm text-foreground-muted mb-4">{project.description}</p>
 
                   <div className="flex flex-wrap gap-2 mb-4">
                     {project.tech.map((tech, idx) => (
                       <span
                         key={idx}
-                        className="px-2 py-1 bg-white text-muted text-xs rounded"
+                        className="px-2 py-1 bg-surface-elevated text-muted text-xs rounded border border-border"
                       >
                         {tech}
                       </span>
@@ -152,7 +161,7 @@ export default function Projects() {
                       href={project.link}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 text-primary text-sm font-medium hover:underline"
+                      className="inline-flex items-center gap-2 text-primary text-sm font-medium hover:text-primary-light transition-colors"
                     >
                       View on GitHub
                       <svg
@@ -174,10 +183,10 @@ export default function Projects() {
               ))}
 
             {/* More Coming Soon Card */}
-            <div className="bg-background rounded-xl p-6 border-2 border-dashed border-border flex flex-col items-center justify-center text-center">
-              <div className="w-12 h-12 rounded-full bg-muted/20 flex items-center justify-center mb-4">
+            <div className="rounded-xl p-6 border-2 border-dashed border-border bg-surface/50 flex flex-col items-center justify-center text-center hover:border-primary/50 transition-colors">
+              <div className="w-12 h-12 rounded-full bg-surface-elevated flex items-center justify-center mb-4 border border-border">
                 <svg
-                  className="w-6 h-6 text-muted"
+                  className="w-6 h-6 text-primary"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"

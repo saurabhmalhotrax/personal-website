@@ -1,30 +1,40 @@
 export default function Contact() {
   return (
-    <section id="contact" className="py-24 px-6 bg-white">
-      <div className="max-w-4xl mx-auto">
+    <section id="contact" className="py-24 px-6 bg-background relative overflow-hidden">
+      {/* Background decoration */}
+      <div className="absolute top-0 left-1/3 w-96 h-96 bg-primary/5 rounded-full blur-3xl"></div>
+      <div className="absolute bottom-0 right-1/3 w-96 h-96 bg-accent/5 rounded-full blur-3xl"></div>
+
+      <div className="max-w-4xl mx-auto relative z-10">
+        {/* Bold header */}
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+          <p className="text-primary font-semibold mb-2 tracking-wide uppercase text-sm">
             Let&apos;s Connect
+          </p>
+          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+            Not Your Typical Audit Leader
           </h2>
-          <p className="text-lg text-muted max-w-2xl mx-auto">
-            Looking for a senior audit leader who can drive transformation?
-            Let&apos;s talk about how I can help your organization.
+          <p className="text-lg text-foreground-muted max-w-2xl mx-auto">
+            If you&apos;re looking for someone who writes reports and attends meetings,
+            I&apos;m not your guy. If you want someone who&apos;ll transform how your
+            audit function actually works&mdash;let&apos;s talk.
           </p>
         </div>
 
         <div className="grid md:grid-cols-2 gap-8">
           {/* Contact Info */}
           <div className="space-y-6">
-            <div className="bg-background rounded-xl p-6">
-              <h3 className="text-lg font-semibold text-foreground mb-4">
+            <div className="card-dark p-6">
+              <h3 className="text-lg font-semibold text-foreground mb-4 flex items-center gap-2">
+                <span className="w-2 h-2 rounded-full bg-primary"></span>
                 Get in Touch
               </h3>
               <div className="space-y-4">
                 <a
                   href="mailto:saurabhmalhotrax@gmail.com"
-                  className="flex items-center gap-4 text-muted hover:text-primary transition-colors"
+                  className="flex items-center gap-4 text-foreground-muted hover:text-primary transition-colors group"
                 >
-                  <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
+                  <div className="w-10 h-10 rounded-lg bg-surface-elevated flex items-center justify-center border border-border group-hover:border-primary transition-colors">
                     <svg
                       className="w-5 h-5 text-primary"
                       fill="none"
@@ -46,9 +56,9 @@ export default function Contact() {
                   href="https://linkedin.com/in/saurabhmalhotrax"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-4 text-muted hover:text-primary transition-colors"
+                  className="flex items-center gap-4 text-foreground-muted hover:text-primary transition-colors group"
                 >
-                  <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
+                  <div className="w-10 h-10 rounded-lg bg-surface-elevated flex items-center justify-center border border-border group-hover:border-primary transition-colors">
                     <svg
                       className="w-5 h-5 text-primary"
                       fill="currentColor"
@@ -64,9 +74,9 @@ export default function Contact() {
                   href="https://github.com/saurabhmalhotrax"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-4 text-muted hover:text-primary transition-colors"
+                  className="flex items-center gap-4 text-foreground-muted hover:text-primary transition-colors group"
                 >
-                  <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
+                  <div className="w-10 h-10 rounded-lg bg-surface-elevated flex items-center justify-center border border-border group-hover:border-primary transition-colors">
                     <svg
                       className="w-5 h-5 text-primary"
                       fill="currentColor"
@@ -78,8 +88,8 @@ export default function Contact() {
                   <span>github.com/saurabhmalhotrax</span>
                 </a>
 
-                <div className="flex items-center gap-4 text-muted">
-                  <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
+                <div className="flex items-center gap-4 text-foreground-muted">
+                  <div className="w-10 h-10 rounded-lg bg-surface-elevated flex items-center justify-center border border-border">
                     <svg
                       className="w-5 h-5 text-primary"
                       fill="none"
@@ -107,58 +117,66 @@ export default function Contact() {
           </div>
 
           {/* CTA Card */}
-          <div className="bg-gradient-to-br from-primary to-accent rounded-xl p-8 text-white flex flex-col justify-center">
-            <h3 className="text-2xl font-bold mb-4">
-              Ready to Transform Your Audit Function?
-            </h3>
-            <p className="text-white/90 mb-6">
-              I bring a unique combination of deep audit expertise and technical
-              innovation. Whether you&apos;re looking for:
-            </p>
-            <ul className="space-y-2 mb-8">
-              {[
-                "A senior audit leader for your organization",
-                "Advisory on AI/automation in audit",
-                "Consulting on SOX 404 programs",
-                "A strategic partner for audit transformation",
-              ].map((item, index) => (
-                <li key={index} className="flex items-center gap-2">
-                  <svg
-                    className="w-5 h-5 flex-shrink-0"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M5 13l4 4L19 7"
-                    />
-                  </svg>
-                  <span>{item}</span>
-                </li>
-              ))}
-            </ul>
-            <a
-              href="mailto:saurabhmalhotrax@gmail.com?subject=Let's Connect"
-              className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-white text-primary font-semibold rounded-lg hover:bg-white/90 transition-colors"
-            >
-              Send Me a Message
-              <svg
-                className="w-5 h-5"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
+          <div className="bg-gradient-to-br from-primary to-accent rounded-xl p-8 text-white flex flex-col justify-center relative overflow-hidden">
+            {/* Subtle pattern overlay */}
+            <div className="absolute inset-0 opacity-10">
+              <div className="absolute top-0 right-0 w-40 h-40 border border-white/20 rounded-full -translate-y-1/2 translate-x-1/2"></div>
+              <div className="absolute bottom-0 left-0 w-32 h-32 border border-white/20 rounded-full translate-y-1/2 -translate-x-1/2"></div>
+            </div>
+
+            <div className="relative z-10">
+              <h3 className="text-2xl font-bold mb-4">
+                Ready to Transform Your Audit Function?
+              </h3>
+              <p className="text-white/90 mb-6">
+                I bring what most audit leaders don&apos;t: the ability to actually build
+                the tools that transform how work gets done.
+              </p>
+              <ul className="space-y-2 mb-8">
+                {[
+                  "Senior audit leader for your organization",
+                  "Advisory on AI/automation in audit",
+                  "SOX 404 program transformation",
+                  "Building tools, not just presentations",
+                ].map((item, index) => (
+                  <li key={index} className="flex items-center gap-2">
+                    <svg
+                      className="w-5 h-5 flex-shrink-0"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M5 13l4 4L19 7"
+                      />
+                    </svg>
+                    <span className="text-white/90">{item}</span>
+                  </li>
+                ))}
+              </ul>
+              <a
+                href="mailto:saurabhmalhotrax@gmail.com?subject=Let's Connect"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-white text-primary font-semibold rounded-lg hover:bg-white/90 transition-colors shadow-lg"
               >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M14 5l7 7m0 0l-7 7m7-7H3"
-                />
-              </svg>
-            </a>
+                Send Me a Message
+                <svg
+                  className="w-5 h-5"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M14 5l7 7m0 0l-7 7m7-7H3"
+                  />
+                </svg>
+              </a>
+            </div>
           </div>
         </div>
       </div>

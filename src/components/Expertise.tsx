@@ -73,24 +73,31 @@ const certifications = [
 
 export default function Expertise() {
   return (
-    <section id="expertise" className="py-24 px-6 bg-background">
-      <div className="max-w-6xl mx-auto">
+    <section id="expertise" className="py-24 px-6 bg-background-secondary relative overflow-hidden">
+      {/* Background decoration */}
+      <div className="absolute top-0 right-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl"></div>
+      <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-accent/5 rounded-full blur-3xl"></div>
+
+      <div className="max-w-6xl mx-auto relative z-10">
         <div className="text-center mb-16">
+          <p className="text-primary font-semibold mb-2 tracking-wide uppercase text-sm">
+            The Arsenal
+          </p>
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-            Areas of Expertise
+            Deep Expertise, Rare Combination
           </h2>
-          <p className="text-lg text-muted max-w-2xl mx-auto">
-            A unique combination of deep audit domain knowledge, technical skills,
-            and leadership experience.
+          <p className="text-lg text-foreground-muted max-w-2xl mx-auto">
+            Most audit leaders know audit. Some know tech. Almost none can actually
+            build the solutions they envision.
           </p>
         </div>
 
         {/* Expertise Grid */}
         <div className="grid md:grid-cols-2 gap-6 mb-16">
           {expertiseAreas.map((area, index) => (
-            <div key={index} className="bg-white rounded-xl p-6 card-hover">
+            <div key={index} className="card-dark p-6 group">
               <div className="flex items-center gap-3 mb-4">
-                <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center text-primary">
+                <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center text-primary group-hover:scale-110 transition-transform border border-primary/20">
                   {area.icon}
                 </div>
                 <h3 className="text-xl font-bold text-foreground">
@@ -101,7 +108,7 @@ export default function Expertise() {
                 {area.skills.map((skill, idx) => (
                   <span
                     key={idx}
-                    className="px-3 py-1.5 bg-background text-muted text-sm rounded-lg"
+                    className="px-3 py-1.5 bg-surface-elevated text-foreground-muted text-sm rounded-lg border border-border hover:border-primary/30 hover:text-primary transition-colors"
                   >
                     {skill}
                   </span>
@@ -112,28 +119,36 @@ export default function Expertise() {
         </div>
 
         {/* Certifications */}
-        <div className="bg-gradient-to-r from-primary to-accent rounded-2xl p-8 md:p-12">
-          <div className="text-center mb-8">
-            <h3 className="text-2xl font-bold text-white mb-2">
-              Professional Certifications
-            </h3>
-            <p className="text-white/80">
-              Globally recognized credentials in accounting and audit
-            </p>
+        <div className="bg-gradient-to-r from-primary to-accent rounded-2xl p-8 md:p-12 relative overflow-hidden">
+          {/* Pattern overlay */}
+          <div className="absolute inset-0 opacity-10">
+            <div className="absolute top-0 right-0 w-64 h-64 border border-white/20 rounded-full -translate-y-1/2 translate-x-1/2"></div>
+            <div className="absolute bottom-0 left-0 w-48 h-48 border border-white/20 rounded-full translate-y-1/2 -translate-x-1/2"></div>
           </div>
-          <div className="flex flex-wrap justify-center gap-6">
-            {certifications.map((cert, index) => (
-              <div
-                key={index}
-                className="bg-white/10 backdrop-blur-sm rounded-xl p-6 text-center min-w-[200px]"
-              >
-                <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-white/20 flex items-center justify-center">
-                  <span className="text-2xl font-bold text-white">{cert.name}</span>
+
+          <div className="relative z-10">
+            <div className="text-center mb-8">
+              <h3 className="text-2xl font-bold text-white mb-2">
+                Dual-Qualified CPA
+              </h3>
+              <p className="text-white/80">
+                Credentials that matter, backed by results that speak louder
+              </p>
+            </div>
+            <div className="flex flex-wrap justify-center gap-6">
+              {certifications.map((cert, index) => (
+                <div
+                  key={index}
+                  className="bg-white/10 backdrop-blur-sm rounded-xl p-6 text-center min-w-[200px] border border-white/20 hover:bg-white/20 transition-colors"
+                >
+                  <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-white/20 flex items-center justify-center">
+                    <span className="text-2xl font-bold text-white">{cert.name}</span>
+                  </div>
+                  <p className="text-white font-semibold">{cert.org}</p>
+                  <p className="text-white/70 text-sm">{cert.year}</p>
                 </div>
-                <p className="text-white font-semibold">{cert.org}</p>
-                <p className="text-white/70 text-sm">{cert.year}</p>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
 
@@ -143,7 +158,7 @@ export default function Expertise() {
           <div className="flex flex-wrap justify-center gap-8">
             {["CPA Canada", "ICAI", "IIA (Institute of Internal Auditors)"].map(
               (org, index) => (
-                <span key={index} className="text-muted font-medium">
+                <span key={index} className="text-foreground-muted font-medium hover:text-primary transition-colors">
                   {org}
                 </span>
               )

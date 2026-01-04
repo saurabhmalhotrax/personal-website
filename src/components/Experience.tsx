@@ -13,7 +13,7 @@ const experiences = [
     ],
     achievements: [
       { metric: "$2M+", label: "Engagements delivered" },
-      { metric: "40%", label: "Efficiency gains through automation" },
+      { metric: "40%", label: "Efficiency gains" },
       { metric: "95%+", label: "Client satisfaction" },
     ],
   },
@@ -30,9 +30,9 @@ const experiences = [
       "Developed automated procedures reducing manual testing effort by 30%",
     ],
     achievements: [
-      { metric: "2 yrs", label: "To Senior Manager promotion" },
-      { metric: "25%", label: "Audit cycle time reduction" },
-      { metric: "SME", label: "SOX 404 TDRA specialist" },
+      { metric: "2 yrs", label: "To Senior Manager" },
+      { metric: "25%", label: "Cycle time reduction" },
+      { metric: "SME", label: "SOX 404 TDRA" },
     ],
   },
   {
@@ -47,8 +47,8 @@ const experiences = [
       "Collaborated with external audit teams for integrated testing approach",
     ],
     achievements: [
-      { metric: "Fortune 100", label: "Technology client delivery" },
-      { metric: "Exceeds", label: "Performance rating" },
+      { metric: "Fortune 100", label: "Tech clients" },
+      { metric: "Exceeds", label: "Performance" },
     ],
   },
   {
@@ -63,29 +63,36 @@ const experiences = [
       "Led SOX 404 testing programs for US-listed clients across diverse industries",
     ],
     achievements: [
-      { metric: "3x", label: "Promotions in 4 years" },
-      { metric: "Multiple", label: "Exceeds Expectations ratings" },
+      { metric: "3x", label: "Promotions" },
+      { metric: "Multiple", label: "Top ratings" },
     ],
   },
 ];
 
 export default function Experience() {
   return (
-    <section id="experience" className="py-24 px-6 bg-background">
-      <div className="max-w-6xl mx-auto">
+    <section id="experience" className="py-24 px-6 bg-background-secondary relative overflow-hidden">
+      {/* Background decoration */}
+      <div className="absolute top-1/4 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl"></div>
+      <div className="absolute bottom-1/4 left-0 w-96 h-96 bg-accent/5 rounded-full blur-3xl"></div>
+
+      <div className="max-w-6xl mx-auto relative z-10">
         <div className="text-center mb-16">
+          <p className="text-primary font-semibold mb-2 tracking-wide uppercase text-sm">
+            The Journey
+          </p>
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-            Professional Experience
+            14+ Years Building Audit Excellence
           </h2>
-          <p className="text-lg text-muted max-w-2xl mx-auto">
-            14+ years of progressive leadership across top consulting firms,
-            building and leading audit programs for global enterprises.
+          <p className="text-lg text-foreground-muted max-w-2xl mx-auto">
+            From Big 4 foundations to leading enterprise-wide transformations.
+            Each role taught me something new about what audit could become.
           </p>
         </div>
 
         <div className="relative">
           {/* Timeline line */}
-          <div className="absolute left-0 md:left-1/2 transform md:-translate-x-px top-0 bottom-0 w-0.5 bg-border hidden md:block"></div>
+          <div className="absolute left-0 md:left-1/2 transform md:-translate-x-px top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary via-accent to-primary/30 hidden md:block"></div>
 
           <div className="space-y-12">
             {experiences.map((exp, index) => (
@@ -96,11 +103,11 @@ export default function Experience() {
                 }`}
               >
                 {/* Timeline dot */}
-                <div className="absolute left-0 md:left-1/2 transform md:-translate-x-1/2 w-4 h-4 rounded-full bg-primary border-4 border-background hidden md:block"></div>
+                <div className="absolute left-0 md:left-1/2 transform md:-translate-x-1/2 w-4 h-4 rounded-full bg-primary border-4 border-background-secondary hidden md:block shadow-lg shadow-primary/30"></div>
 
                 {/* Content */}
                 <div className={`md:w-1/2 ${index % 2 === 0 ? "md:pr-12" : "md:pl-12"}`}>
-                  <div className="bg-white rounded-xl p-6 shadow-sm card-hover">
+                  <div className="card-dark p-6">
                     {/* Header */}
                     <div className="flex items-start justify-between mb-4">
                       <div>
@@ -111,7 +118,7 @@ export default function Experience() {
                         <p className="text-sm text-muted">{exp.location}</p>
                       </div>
                       {exp.current && (
-                        <span className="px-3 py-1 bg-primary/10 text-primary text-xs font-semibold rounded-full">
+                        <span className="px-3 py-1 bg-primary/20 text-primary text-xs font-semibold rounded-full border border-primary/30">
                           Current
                         </span>
                       )}
@@ -122,8 +129,8 @@ export default function Experience() {
                     {/* Highlights */}
                     <ul className="space-y-2 mb-6">
                       {exp.highlights.map((highlight, idx) => (
-                        <li key={idx} className="flex items-start gap-2 text-sm text-muted">
-                          <svg className="w-4 h-4 text-accent mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <li key={idx} className="flex items-start gap-2 text-sm text-foreground-muted">
+                          <svg className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                           </svg>
                           <span>{highlight}</span>
@@ -135,7 +142,7 @@ export default function Experience() {
                     <div className="flex flex-wrap gap-4 pt-4 border-t border-border">
                       {exp.achievements.map((achievement, idx) => (
                         <div key={idx} className="text-center">
-                          <p className="text-lg font-bold text-primary">{achievement.metric}</p>
+                          <p className="text-lg font-bold gradient-text">{achievement.metric}</p>
                           <p className="text-xs text-muted">{achievement.label}</p>
                         </div>
                       ))}

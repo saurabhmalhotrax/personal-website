@@ -2,13 +2,16 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="py-8 px-6 bg-foreground text-white/80">
+    <footer className="py-8 px-6 bg-surface border-t border-border">
       <div className="max-w-6xl mx-auto">
         <div className="flex flex-col md:flex-row items-center justify-between gap-4">
           <div className="text-center md:text-left">
-            <p className="font-semibold text-white">Saurabh Malhotra</p>
-            <p className="text-sm">
-              Director, Internal Audit & Risk Management | CPA, CA
+            <p className="font-semibold text-foreground flex items-center gap-2 justify-center md:justify-start">
+              Saurabh Malhotra
+              <span className="text-primary">.</span>
+            </p>
+            <p className="text-sm text-muted">
+              The CPA Who Codes | Director, Internal Audit & Risk Management
             </p>
           </div>
 
@@ -17,7 +20,7 @@ export default function Footer() {
               href="https://linkedin.com/in/saurabhmalhotrax"
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-white transition-colors"
+              className="text-muted hover:text-primary transition-colors"
               aria-label="LinkedIn"
             >
               <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -28,7 +31,7 @@ export default function Footer() {
               href="https://github.com/saurabhmalhotrax"
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-white transition-colors"
+              className="text-muted hover:text-primary transition-colors"
               aria-label="GitHub"
             >
               <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -36,8 +39,19 @@ export default function Footer() {
               </svg>
             </a>
             <a
+              href="https://twitter.com/saurabhmalhotrax"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-muted hover:text-primary transition-colors"
+              aria-label="Twitter/X"
+            >
+              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+              </svg>
+            </a>
+            <a
               href="mailto:saurabhmalhotrax@gmail.com"
-              className="hover:text-white transition-colors"
+              className="text-muted hover:text-primary transition-colors"
               aria-label="Email"
             >
               <svg
@@ -57,8 +71,8 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-6 pt-6 border-t border-white/10 text-center text-sm">
-          <p>{currentYear} Saurabh Malhotra. Vancouver, BC, Canada.</p>
+        <div className="mt-6 pt-6 border-t border-border text-center text-sm text-muted">
+          <p>&copy; {currentYear} Saurabh Malhotra. Vancouver, BC, Canada.</p>
         </div>
       </div>
     </footer>
